@@ -27,44 +27,44 @@ const MENUS: MenusType = {
     meals: [
       {
         name: "Bife de cerdo con cebollas caramelizadas",
-        calories: 290,
-        protein: 40,
+        calories: 610,
+        protein: 52,
         imgUrl: "/menus/CaramelizedOnionAppleJusRoastedPork.webp",
       },
       {
         name: "Bife con arroz yamani y brócoli",
-        calories: 200,
-        protein: 10,
+        calories: 510,
+        protein: 48,
         imgUrl: "/menus/Steak&BrownRice.webp",
       },
       {
         name: "Pastel de carne con papas rústicas",
-        calories: 250,
-        protein: 25,
+        calories: 750,
+        protein: 55,
         imgUrl: "/menus/CottagePie.webp",
       },
     ],
   },
   hypercaloricHyperproteic: {
     title: "Menú de Aumento de Masa Muscular",
-    description: "Menú alto en proteínas y calorías para desarrollo muscular.",
+    description: "Alto en proteínas y calorías para desarrollo muscular.",
     meals: [
       {
         name: "Empandas de pollo con cebolla caramelizada",
-        calories: 257,
-        protein: 17.1,
+        calories: 1036,
+        protein: 59,
         imgUrl: "/menus/empanadas.png",
       },
       {
-        name: "Souffle de calabaza con albondigas",
-        calories: 362,
-        protein: 31.3,
+        name: "Souffle de calabaza con albóndigas",
+        calories: 971,
+        protein: 67.4,
         imgUrl: "/menus/suffleAlbondigas.png",
       },
       {
         name: "Mousse de tofu con batata y chocolate",
-        calories: 250,
-        protein: 9,
+        calories: 329.6,
+        protein: 31,
         imgUrl: "/menus/mousseTofu.png",
       },
     ],
@@ -86,19 +86,19 @@ const MENUS_WITH_MACROS: Record<keyof typeof MENUS, MenuWithMacros> = {
   hypocaloric: {
     ...MENUS.hypocaloric,
     macros: {
-      protein: 65,
-      carbs: 35,
-      fats: 21,
-      calories: 670,
+      protein: 201,
+      carbs: 147,
+      fats: 53,
+      calories: 1870,
     },
   },
   hypercaloricHyperproteic: {
     ...MENUS.hypercaloricHyperproteic,
     macros: {
-      protein: 57.4,
-      carbs: 85,
-      fats: 31,
-      calories: 869,
+      protein: 227.4,
+      carbs: 179,
+      fats: 79,
+      calories: 2257,
     },
   },
 };
@@ -129,7 +129,7 @@ const NutritionPieChart: React.FC<NutritionPieChartProps> = ({ menuType }) => {
       percentage: ((proteinCalories / totalCalories) * 100).toFixed(1),
     },
     {
-      name: "Carbohidratos",
+      name: "Carbs",
       value: carbs,
       color: "#36A2EB",
       percentage: ((carbsCalories / totalCalories) * 100).toFixed(1),
@@ -169,13 +169,13 @@ const NutritionPieChart: React.FC<NutritionPieChartProps> = ({ menuType }) => {
           </PieChart>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
             <p className="text-xs">Promedio</p>
-            <p className="text-md font-bold">{totalCalories}cal.</p>
+            <p className="text-md font-bold">{totalCalories} kcal.</p>
             <p className="text-xs ">Total</p>
           </div>
         </div>
       </div>
 
-      <div className="mt-2 flex flex-wrap justify-center gap-2 text-xs">
+      <div className="mt-2 flex flex-col md:flex-row flex-wrap justify-center gap-2 text-xs">
         {data.map((item) => (
           <div key={item.name} className="flex items-center ">
             <div

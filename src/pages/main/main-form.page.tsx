@@ -60,44 +60,44 @@ const MENUS = {
     meals: [
       {
         name: "Bife de cerdo con cebollas caramelizadas",
-        calories: 290,
-        protein: 40,
+        calories: 610,
+        protein: 52,
         imgUrl: "/menus/CaramelizedOnionAppleJusRoastedPork.webp",
       },
       {
         name: "Bife con arroz yamani y brócoli",
-        calories: 200,
-        protein: 10,
+        calories: 510,
+        protein: 48,
         imgUrl: "/menus/Steak&BrownRice.webp",
       },
       {
         name: "Pastel de carne con papas rústicas",
-        calories: 250,
-        protein: 25,
+        calories: 750,
+        protein: 55,
         imgUrl: "/menus/CottagePie.webp",
       },
     ],
   },
   hypercaloricHyperproteic: {
     title: "Menú de Aumento de Masa Muscular",
-    description: "Menú alto en proteínas y calorías para desarrollo muscular.",
+    description: "Alto en proteínas y calorías para desarrollo muscular.",
     meals: [
       {
         name: "Empandas de pollo con cebolla caramelizada",
-        calories: 257,
-        protein: 17.1,
+        calories: 1036,
+        protein: 59,
         imgUrl: "/menus/empanadas.png",
       },
       {
         name: "Souffle de calabaza con albóndigas",
-        calories: 362,
-        protein: 31.3,
+        calories: 971,
+        protein: 67.4,
         imgUrl: "/menus/suffleAlbondigas.png",
       },
       {
         name: "Mousse de tofu con batata y chocolate",
-        calories: 250,
-        protein: 9,
+        calories: 329.6,
+        protein: 31,
         imgUrl: "/menus/mousseTofu.png",
       },
     ],
@@ -283,7 +283,6 @@ const MainFormPage = () => {
                   </FormItem>
                 )}
               />
-
               <Button
                 type="submit"
                 className="w-full bg-yellow-500 hover:bg-yellow-600"
@@ -317,14 +316,26 @@ const MainFormPage = () => {
                   />
                   <div className="text-center mt-2">
                     <p className="font-semibold text-sm">{meal.name}</p>
-                    <p className="text-sm text-gray-600">
+                    <div className="md:hidden flex ">
+                    <ul>
+                      <li className="text-xs text-gray-600">
+                        ~{meal.calories} cal
+                      </li>
+                      <li className="text-xs text-gray-600">
+                        ~{meal.protein}g proteína
+                      </li>
+                    </ul>
+
+                    
+                    </div>
+                    <p className="text-sm text-gray-600 hidden md:block">
                       {meal.calories} cal | {meal.protein}g proteína
                     </p>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="p-6 pt-0 flex w-full">
+            <div className=" md:p-6 pt-0 flex w-full">
               <div>
                 {selectedMenu && <NutritionPieChart menuType={selectedMenu} />}
               </div>
